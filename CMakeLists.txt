@@ -6,9 +6,10 @@ project(tin_clicker
 )
 
 set(PROJECT_STAGE "alpha1")
+set(WIN32_EXECUTABLE true)
 
 add_subdirectory(src)
 
-add_executable(tin-clicker src/main.cpp)
+add_executable(tin-clicker WIN32 src/main.cpp)
 
 target_link_directories(tin-clicker PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
