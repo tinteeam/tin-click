@@ -3,6 +3,10 @@
 * Tinteeam (C) 2026 Licensed under the MIT License. See LICENSE file in the project root for full license information.
 */
 
+#ifndef UNICODE
+#define UNICODE
+#endif
+
 // includes
 #include "Window.hpp"
 #include <iostream>
@@ -17,6 +21,8 @@ public:
 	string title;
 
 };
+
+
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
