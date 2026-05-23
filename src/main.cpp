@@ -42,13 +42,16 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles 
         10,         // x position 
         10,         // y position 
-        100,        // Button width
-        100,        // Button height
+        50,        // Button width
+        50,        // Button height
         hwnd,     // Parent window
-        NULL,       // No menu.
+        (HMENU)1,      
         (HINSTANCE)GetWindowLongPtr(hwnd, GWLP_HINSTANCE),
         NULL
     );
+
+    HBITMAP hBitmap = (HBITMAP)LoadImage(
+		NULL, L"./assets/tin_ingot.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 
     if (hwnd == NULL)
     {

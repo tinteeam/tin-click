@@ -38,4 +38,13 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+echo Making sure the assets are placed in the output directory...
+
+if not exist assets (
+    echo assets directory not found. Copying directory...
+    xcopy /s /y ..\assets .\assets
+)
+
+
 echo Done.
+pause
