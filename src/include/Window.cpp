@@ -11,20 +11,67 @@
 #include "Window.hpp"
 #include <iostream>
 
+//WindowProc declaration
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
+
 //usings from the standard library
 using std::string;
 
+namespace tin_click_inc {
+    
+    
+        int MainWindow::GameWindow(HINSTANCE hInstance,
+            HINSTANCE hPrevInstance,
+            wchar_t* pCmdLine,
+            int nCmdShow) {
+        
+            const wchar_t CLASS_NAME[] = L"Sample Window Class";
 
-class MainWindow
-{
-public:
-	string title;
+            WNDCLASS wc = { };
 
-};
+            wc.lpfnWndProc = WindowProc;
+            wc.hInstance = hInstance;
+            wc.lpszClassName = CLASS_NAME;
+
+            RegisterClass(&wc);
+			HWND hwnd = CreateWindowEx(
+				0,                              // Optional window styles.
+				CLASS_NAME,                     // Window class
+				L"Tin-click",    // Window text
+				WS_OVERLAPPEDWINDOW,            // Window style
+				// Size and position
+				CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+				NULL,       // Parent window    
+				NULL,       // Menu
+				hInstance,  // Instance handle
+				NULL        // Additional application data
+			);
+
+			if (hwnd == NULL)
+			{
+				return -1;
+			}
+
+			ShowWindow(hwnd, nCmdShow);
+
+			// Run the message loop.
+			MSG msg = { };
+
+            while (GetMessage(&msg, NULL, 0, 0) > 0)
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+
+			return 1;
+        };
+
+    
+}
 
 
 
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 // Setup the window process WindowProc, which will handle messages sent to the window. 
 // This is a callback function that will be called by the Windows operating system when certain events occur (like painting the window, closing it, etc.). 

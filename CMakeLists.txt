@@ -12,4 +12,5 @@ add_subdirectory(src)
 
 add_executable(tin-clicker WIN32 src/main.cpp)
 
-target_link_directories(tin-clicker PUBLIC tin-click)
+target_link_libraries(tin-clicker PRIVATE tin-click)
+target_include_directories(tin-clicker PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/include)
