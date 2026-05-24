@@ -109,22 +109,15 @@ HRESULT GameApp::Initialize() {
 
         RegisterClassEx(&wcex);
 
-        // Create the application window.
-        //
-        // Because the CreateWindow function takes its size in pixels, we
-        // obtain the system DPI and use it to scale the window size.
-        FLOAT dpiX, dpiY;
-        m_pD2DFactory->GetDesktopDpi(&dpiX, &dpiY);
-
-        // Create the application window.
+        
         m_hwnd = CreateWindow(
             L"D2DDemoApp",
             L"Tin click 0.1 DEV ALPHA",
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
-            static_cast<INT>(ceil(640.f * dpiX / 96.f)),
-            static_cast<INT>(ceil(480.f * dpiY / 96.f)),
+            1280,
+            720,
             NULL,
             NULL,
             HINST_THISCOMPONENT,
@@ -561,6 +554,17 @@ LRESULT CALLBACK GameApp::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM
                 }
                 
                 EndPaint(hwnd, &ps);
+            }
+            result = 0;
+            wasHandled = true;
+            break;
+
+            case WM_GETMINMAXINFO:
+            {
+                MINMAXINFO* pMinMax = (MINMAXINFO*)lParam;
+
+                pMinMax->ptMinTrackSize.x = 800;
+                pMinMax->ptMinTrackSize.y = 600;
             }
             result = 0;
             wasHandled = true;
