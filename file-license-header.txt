@@ -1,0 +1,3 @@
+(This should be aplied to every file that has code in it. It should describe what the code does.)
+*description*
+Tinteeam (C) 2026 Licensed under the MIT License. See LICENSE file in the project root for full license information.

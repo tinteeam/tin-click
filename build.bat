@@ -1,6 +1,9 @@
 @echo off
 setlocal
 
+@REM Build script for the Tin Click project.
+@REM Tinteeam (C) 2026 Licensed under the MIT License. See LICENSE file in the project root for full license information.
+
 echo Entering Visual Studio development environment...
 
 call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat"

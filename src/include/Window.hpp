@@ -1,3 +1,10 @@
+/*
+* 
+* Window.hpp - declaration for the main window class and utility functions for safe release and assertions and other D2D methods.
+* Tinteeam (C) 2026 Licensed under the MIT License. See LICENSE file in the project root for full license information.
+* 
+*/
+
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 

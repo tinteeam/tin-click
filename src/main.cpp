@@ -1,3 +1,8 @@
+/*
+* Main entry point for the game. Initializes the main window and starts the game loop.
+* Tinteeam (C) 2026 Licensed under the MIT License. See LICENSE file in the project root for full license information.
+*/
+
 #ifndef UNICODE  
 #define UNICODE  
 #endif  
