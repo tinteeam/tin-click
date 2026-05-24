@@ -67,6 +67,8 @@ public:
     // Process and dispatch messages
     void RunMessageLoop();
 
+	bool IsReady() const;
+
 private:
     HRESULT CreateDeviceIndependentResources();
     HRESULT CreateDeviceResources();

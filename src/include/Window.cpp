@@ -15,6 +15,7 @@
 #include <math.h>
 #include "Window.hpp"
 #include <iostream>
+#include "errors.hpp"
 
 
 
@@ -122,6 +123,11 @@ GameApp::GameApp() :
     m_pBitmap(NULL),
     m_pAnotherBitmap(NULL)
 {
+}
+
+bool GameApp::IsReady() const
+{
+    return m_pRenderTarget != NULL;
 }
 
 GameApp::~GameApp()
@@ -576,7 +582,7 @@ LRESULT CALLBACK GameApp::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM
             reinterpret_cast<LONG_PTR>(pGameApp)
         );
 
-        result = 1;
+        result = 0;
     }
     else
     {
@@ -607,7 +613,11 @@ LRESULT CALLBACK GameApp::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM
             {
                 PAINTSTRUCT ps;
                 BeginPaint(hwnd, &ps);
-                pDemoApp->OnRender();
+                if(pDemoApp && pDemoApp->IsReady())
+                {
+                    pDemoApp->OnRender();
+                }
+                
                 EndPaint(hwnd, &ps);
             }
             result = 0;
