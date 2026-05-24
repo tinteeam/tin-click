@@ -8,8 +8,19 @@
 #endif
 
 // includes
+#include <stdlib.h>
+#include <malloc.h>
+#include <memory.h>
+#include <wchar.h>
+#include <math.h>
 #include "Window.hpp"
 #include <iostream>
+
+//Direct2D(D2D) headers includes
+#include <d2d1.h>
+#include <d2d1helper.h>
+#include <dwrite.h>
+#include <wincodec.h>
 
 //WindowProc declaration
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
