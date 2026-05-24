@@ -431,3 +431,6 @@ FodyWeavers.xsd
 
 # Gimp project Files
 *.xcf
+
+# Build folder that vscode decided to build in for some obscure reason
+build/

@@ -16,19 +16,6 @@
 #include <dwrite.h>
 #include <wincodec.h>
 
-namespace tin_click_inc {
-
-    class MainWindow {
-    public:
-        int GameWindow(
-            HINSTANCE hInstance,
-            HINSTANCE hPrevInstance,
-            wchar_t* pCmdLine,
-            int nCmdShow
-        );
-    };
-}
-
 
 template<class Interface>
 inline void SafeRelease(
