@@ -171,7 +171,7 @@ HRESULT GameApp::Initialize() {
         // Create the application window.
         m_hwnd = CreateWindow(
             L"D2DDemoApp",
-            L"Direct2D Demo Application",
+            L"Tin click 0.1 DEV ALPHA",
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,

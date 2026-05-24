@@ -16,11 +16,25 @@ using namespace tin_click_inc;
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, wchar_t* pCmdLine, int nCmdShow)
 {  
-	MessageBox(NULL, L"This game is under construction.", L"Under Construction", MB_OK | MB_ICONWARNING);  
+	LPCWSTR ConstructionMessage = L"This game is under construction. Please check on later. Development is underway.";
+	LPCWSTR ConstructionTitle = L"Under Construction";
 
-	tin_click_inc::NotImplWarn::NotImplementedWarn();  
+	MessageBox(NULL, ConstructionMessage, ConstructionTitle, MB_OK | MB_ICONWARNING);  
 
-	
-	tin_click_inc::MainWindow mainWindow;  
-	return mainWindow.GameWindow(hInstance, hPrevInstance, pCmdLine, nCmdShow);  
+	tin_click_inc::GeneralWarn::ShowWarning(L"This game might be unstable or may have any other issues. Please report them to https://github.com/tinteeam/tin-click/issues", L"Please report issues");
+
+
+	if (SUCCEEDED(CoInitialize(NULL))) {
+		{
+			GameApp app;
+			if (SUCCEEDED(app.Initialize()))
+			{
+				app.RunMessageLoop();
+			}
+		}
+
+		CoUninitialize();
+	}
+
+	return 0;
 }
